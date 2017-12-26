@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>A/B Split significance Calculator</title>
+<body>
+<br>
+ <br>
+<fieldset>
+
+
+
+<legend>A/B Split Significance Calculator</legend>
+    <div class="container">
+<form method="post">
+    {% csrf_token %}
+     {%if args.error%}
+    <h><strong>{{args.error}}</strong></h>
+    {{args.form.as_p}}
+    <button type="submit">Calculate</button>
+    {%else%}
+    {{form.as_p}}
+
+    {{args.form.as_p}}
+     <button type="submit">Calculate</button>
+
+    <br>
+    <br>
+    {% if args%}
+    <label>Significance:</label>
+    {{args.significance}}
+
+    <label>PValue:</label>
+    {{args.pvalue}}
+    {% endif %}
+    {%endif%}
+</form>
+        </div>
+    </fieldset>
+</body>
+</head></html>
